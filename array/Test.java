@@ -9,7 +9,12 @@ public class Test {
         ArrayInitParser parser = new ArrayInitParser(tokens);
 
         ParseTree tree = parser.init();
-        System.out.println(tree.toStringTree(parser));
+
+        // Create a generate tree walker to trigger the callbacks
+        ParseTreeWalker walker = new ParseTreeWalker();
+        walker.walk(new ShortToUnicodeString(), tree);
+
+        System.out.println();
     }
 }
 

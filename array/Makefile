@@ -1,5 +1,5 @@
 
-program: Test.java ArrayInitParser.java
+program: Test.java ArrayInitParser.java ShortToUnicodeString.java
 	javac ./*.java
 
 ArrayInitParser.java: ArrayInit.g4
