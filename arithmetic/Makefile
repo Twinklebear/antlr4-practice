@@ -1,0 +1,25 @@
+GRAMMAR=Arithmetic
+PARSER=$(GRAMMAR)Parser
+
+all: $(PARSER).class
+
+$(PARSER).class: $(PARSER).java
+	javac $(GRAMMAR)BaseListener.java \
+		$(GRAMMAR)Lexer.java \
+		$(GRAMMAR)Listener.java \
+		$(GRAMMAR)Parser.java
+
+$(PARSER).java: $(GRAMMAR).g4
+	java -jar /Users/will/libs/antlr4/antlr-4.9.2-complete.jar $^
+
+.PHONY: clean
+clean:
+	rm -f *.interp \
+		*.tokens \
+		*.class \
+		$(GRAMMAR)BaseListener.java \
+		$(GRAMMAR)Lexer.java \
+		$(GRAMMAR)Listener.java \
+		$(GRAMMAR)Parser.java \
+		*.class
+
