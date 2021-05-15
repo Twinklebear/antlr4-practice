@@ -5,6 +5,7 @@ prog: stat+ ;
 stat: expr NEWLINE             # printExpr
     | ID '=' expr NEWLINE      # assign
     | NEWLINE                  # blank
+    | 'clear'                  # clear
     ;
 
 // Setting the op = part instructs ANTLR to create a

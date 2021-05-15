@@ -13,6 +13,12 @@ public class CalcVisitor extends ArithmeticBaseVisitor<Integer> {
     }
 
     @Override
+    public Integer visitClear(ArithmeticParser.ClearContext ctx) {
+        memory = new HashMap<String, Integer>();
+        return 0;
+    }
+
+    @Override
     public Integer visitAssign(ArithmeticParser.AssignContext ctx) {
         String id = ctx.ID().getText();
         int value = visit(ctx.expr());
