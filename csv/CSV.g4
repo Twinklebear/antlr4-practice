@@ -1,7 +1,7 @@
 grammar CSV;
 
-file : (row '\n')* ;
+file : (row '\r'? '\n')* ;
 row  : field (',' field)* ;
 field: ITEM;
 
-ITEM : [A-Za-z0-9 ]+ ;
+ITEM : ~[,\n\r"]+ ;
