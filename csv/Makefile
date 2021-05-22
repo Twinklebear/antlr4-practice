@@ -1,7 +1,10 @@
 GRAMMAR=CSV
 PARSER=$(GRAMMAR)Parser
 
-all: $(PARSER).class
+all: loader
+
+loader: $(PARSER).java Main.java LoadCSV.java
+	javac *.java
 
 $(PARSER).class: $(PARSER).java
 	javac $(GRAMMAR)Lexer.java \
