@@ -12,10 +12,10 @@ public class Main {
 
         ParseTreeWalker walker = new ParseTreeWalker();
         DefPass defPass = new DefPass();
-        walker.walk(defPhase, tree);
+        walker.walk(defPass, tree);
 
-        RefPass refPass = new RefPass();
-        walker.walk(ref, tree);
+        RefPass refPass = new RefPass(defPass.scopes, defPass.globals);
+        walker.walk(refPass, tree);
     }
 }
 

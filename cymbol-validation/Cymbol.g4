@@ -31,6 +31,8 @@ expr: ID '(' exprList? ')'  # Call
     | expr '==' expr        # Equal
     | ID                    # Var
     | INT                   # Int
+    | 'true'                # True
+    | 'false'               # False
     | '(' expr ')'          # Parens
     ;
 
